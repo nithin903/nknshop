@@ -1,0 +1,28 @@
+<section class="trust">
+  <div class="page-width trust__inner">
+    {% for block in section.blocks %}
+      <div class="trust__item" {{ block.shopify_attributes }}>
+        <strong>{{ block.settings.title }}</strong>
+        <span>{{ block.settings.text }}</span>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trust bar",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "10,000+" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Happy customers" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Trust bar" }]
+}
+{% endschema %}

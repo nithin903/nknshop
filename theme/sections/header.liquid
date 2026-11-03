@@ -1,0 +1,84 @@
+<header class="site-header">
+  <div class="page-width site-header__inner">
+    <button class="icon-btn js-menu-open" type="button" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a class="site-logo" href="{{ routes.root_url }}">Nkn<span>Shop</span></a>
+
+    <form class="header-search" action="{{ routes.search_url }}" method="get" role="search">
+      <input type="hidden" name="type" value="product">
+      <input type="search" name="q" placeholder="Search" value="{{ search.terms | escape }}" aria-label="Search">
+    </form>
+
+    <div class="header-actions">
+      <a class="icon-link" href="{{ routes.account_url }}" aria-label="Log in">
+        {% render 'icon-account' %}
+        <span class="hide-mobile">Log in</span>
+      </a>
+      <a class="icon-link" href="{{ routes.cart_url }}" aria-label="Cart">
+        {% render 'icon-cart' %}
+        <span class="cart-count">{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+
+  <nav class="desktop-nav" aria-label="Main">
+    <div class="page-width">
+      {% if section.settings.menu != blank %}
+        <ul class="desktop-nav__list">
+          {% for link in section.settings.menu.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <ul class="desktop-nav__list">
+          <li><a href="{{ routes.root_url }}">Home</a></li>
+          <li><a href="{{ routes.all_products_collection_url }}">Shop</a></li>
+          <li><a href="/collections/juicers">Juicers</a></li>
+          <li><a href="/collections/accessories">Accessories</a></li>
+          <li><a href="/collections/air-pods">Earbuds</a></li>
+          <li><a href="/collections/air-max">Headphones</a></li>
+          <li><a href="/collections/cables-powerbanks">Charging</a></li>
+          <li><a href="/collections/watch-series">Watches</a></li>
+          <li><a href="/collections/speakers">Speakers</a></li>
+          <li><a href="/pages/about-us">About</a></li>
+          <li><a href="/pages/contact">Contact</a></li>
+        </ul>
+      {% endif %}
+    </div>
+  </nav>
+</header>
+
+<div class="drawer-overlay js-menu-close" hidden></div>
+<aside class="mobile-drawer" aria-hidden="true">
+  <button class="icon-btn js-menu-close" type="button" aria-label="Close menu">×</button>
+  <ul>
+    {% if section.settings.menu != blank %}
+      {% for link in section.settings.menu.links %}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {% endfor %}
+    {% else %}
+      <li><a href="{{ routes.root_url }}">Home</a></li>
+      <li><a href="{{ routes.all_products_collection_url }}">Shop</a></li>
+      <li><a href="/collections/juicers">Juicers</a></li>
+      <li><a href="/collections/accessories">Accessories</a></li>
+      <li><a href="/collections/air-pods">Earbuds</a></li>
+      <li><a href="/collections/air-max">Headphones</a></li>
+      <li><a href="/collections/cables-powerbanks">Charging</a></li>
+      <li><a href="/collections/watch-series">Watches</a></li>
+      <li><a href="/collections/speakers">Speakers</a></li>
+      <li><a href="/pages/about-us">About</a></li>
+      <li><a href="/pages/contact">Contact</a></li>
+    {% endif %}
+  </ul>
+</aside>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu" }
+  ]
+}
+{% endschema %}

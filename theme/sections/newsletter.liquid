@@ -1,0 +1,22 @@
+<section class="newsletter">
+  <div class="page-width newsletter__inner">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.subheading }}</p>
+    {% form 'customer', class: 'newsletter-form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <input type="email" name="contact[email]" placeholder="Email" required>
+      <button class="btn" type="submit">Join</button>
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Stay informed" },
+    { "type": "textarea", "id": "subheading", "label": "Text", "default": "New arrivals, restocks, and offers — sent sparingly." }
+  ],
+  "presets": [{ "name": "Newsletter" }]
+}
+{% endschema %}

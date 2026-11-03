@@ -1,0 +1,43 @@
+<footer class="site-footer">
+  <div class="page-width site-footer__inner">
+    <div>
+      <a class="footer-logo" href="{{ routes.root_url }}">Nkn<span>Shop</span></a>
+    </div>
+    <div>
+      <h3>Shop</h3>
+      <a href="{{ routes.all_products_collection_url }}">Shop</a>
+      <a href="/collections/juicers">Juicers</a>
+      <a href="/collections/accessories">Accessories</a>
+      <a href="/collections/air-pods">Earbuds</a>
+      <a href="/collections/air-max">Headphones</a>
+      <a href="/pages/about-us">About</a>
+      <a href="/pages/contact">Contact</a>
+    </div>
+    <div>
+      <h3>Policies</h3>
+      <a href="/policies/privacy-policy">Privacy policy</a>
+      <a href="/policies/refund-policy">Refund policy</a>
+      <a href="/policies/terms-of-service">Terms of service</a>
+      <a href="/policies/shipping-policy">Shipping policy</a>
+    </div>
+    <div>
+      <h3>Follow</h3>
+      {% if settings.social_instagram != blank %}
+        <a href="{{ settings.social_instagram }}">Instagram</a>
+      {% endif %}
+      {% if settings.social_facebook != blank %}
+        <a href="{{ settings.social_facebook }}">Facebook</a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="page-width copyright">
+    © {{ 'now' | date: '%Y' }}, {{ shop.name }} · Powered by Shopify
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": []
+}
+{% endschema %}

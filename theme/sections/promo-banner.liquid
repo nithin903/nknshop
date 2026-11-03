@@ -1,0 +1,32 @@
+<section class="promo-banner">
+  <div class="page-width promo-banner__inner">
+    <div class="promo-banner__copy">
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h2>{{ section.settings.heading }}</h2>
+      {% if section.settings.button_label != blank %}
+        <a class="btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }}</a>
+      {% endif %}
+    </div>
+    <div class="promo-banner__media placeholder-media">
+      {% if section.settings.image != blank %}
+        <img src="{{ section.settings.image | image_url: width: 1200 }}" alt="{{ section.settings.heading | escape }}">
+      {% else %}
+        <span>Banner image — add later in Shopify</span>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Promo banner",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "New drop" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Air Pro 4 ANC" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop now" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "image_picker", "id": "image", "label": "Image" }
+  ],
+  "presets": [{ "name": "Promo banner" }]
+}
+{% endschema %}

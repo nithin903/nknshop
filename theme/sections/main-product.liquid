@@ -1,0 +1,63 @@
+<section class="section product-main">
+  <div class="page-width product-layout">
+    <div class="product-gallery">
+      {% if product.images.size > 0 %}
+        <img id="mainImage" src="{{ product.featured_image | image_url: width: 1200 }}" alt="{{ product.featured_image.alt | escape }}">
+        {% if product.images.size > 1 %}
+          <div class="gallery-thumbs">
+            {% for image in product.images %}
+              <button type="button"{% if forloop.first %} class="is-active"{% endif %} data-src="{{ image | image_url: width: 1200 }}">
+                <img src="{{ image | image_url: width: 240 }}" alt="{{ image.alt | escape }}">
+              </button>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% else %}
+        <div class="placeholder-media tall"><span>Product image coming soon</span></div>
+      {% endif %}
+    </div>
+    <div class="product-info">
+      <p class="vendor">{{ product.vendor | default: shop.name }}</p>
+      <h1>{{ product.title }}</h1>
+      <div class="price-row">
+        {% if product.compare_at_price > product.price %}
+          <span class="sale">{{ product.price | money }}</span>
+          <s>{{ product.compare_at_price | money }}</s>
+          <span class="badge">Sale</span>
+        {% else %}
+          <span>{{ product.price | money }}</span>
+        {% endif %}
+      </div>
+      <div class="rte">{{ product.description }}</div>
+      {% form 'product', product %}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <button class="btn btn-wide" type="submit" {% unless product.available %}disabled{% endunless %}>
+          {% if product.available %}Add to cart{% else %}Sold out{% endif %}
+        </button>
+      {% endform %}
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when '@app' %}
+            {% render block %}
+          {% when 'liquid' %}
+            {{ block.settings.custom_liquid }}
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": [],
+  "blocks": [
+    { "type": "@app" },
+    {
+      "type": "liquid",
+      "name": "Custom liquid",
+      "settings": [{ "type": "liquid", "id": "custom_liquid", "label": "Custom liquid" }]
+    }
+  ]
+}
+{% endschema %}

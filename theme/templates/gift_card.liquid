@@ -1,0 +1,16 @@
+{% layout none %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ gift_card.balance | money }} gift card | {{ shop.name }}</title>
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+  </head>
+  <body>
+    <main class="page-width page-content">
+      <h1>{{ shop.name }} gift card</h1>
+      <p>Balance: {{ gift_card.balance | money }}</p>
+      <p>Code: {{ gift_card.code | format_code }}</p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<section class="hero">
+  <div class="page-width hero__inner">
+    <div>
+      <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      <h1>{{ section.settings.heading }}</h1>
+      <p class="hero__sub">{{ section.settings.subheading }}</p>
+      <div class="hero__actions">
+        {% if section.settings.button_label != blank %}
+          <a class="btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label }}</a>
+        {% endif %}
+        {% if section.settings.secondary_label != blank %}
+          <a class="btn btn-ghost" href="{{ section.settings.secondary_link | default: '/pages/about-us' }}">{{ section.settings.secondary_label }}</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="hero__visual">
+      {% if section.settings.image != blank %}
+        <img src="{{ section.settings.image | image_url: width: 900 }}" alt="{{ shop.name }}">
+      {% else %}
+        <p class="hero-logo">Nkn<span>Shop</span></p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "NKNSHOP" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Premium audio and accessories, priced with intent." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Shop more, pay less. Curated electronics with cash on delivery, complimentary shipping, and easy exchanges." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop collection" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary button", "default": "About NKNSHOP" },
+    { "type": "url", "id": "secondary_link", "label": "Secondary link" },
+    { "type": "image_picker", "id": "image", "label": "Hero image" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

@@ -1,0 +1,9 @@
+<div class="page-width page-content">
+  <h1>Login</h1>
+  {% form 'customer_login' %}
+    <input type="email" name="customer[email]" placeholder="Email">
+    <input type="password" name="customer[password]" placeholder="Password">
+    <button class="btn" type="submit">Sign in</button>
+  {% endform %}
+  <p><a href="{{ routes.account_register_url }}">Create account</a></p>
+</div>

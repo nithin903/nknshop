@@ -1,0 +1,30 @@
+<section class="section">
+  <div class="page-width">
+    <h1>Your cart</h1>
+    {% if cart.item_count == 0 %}
+      <p>Your cart is empty.</p>
+      <a class="btn" href="{{ routes.all_products_collection_url }}">Continue shopping</a>
+    {% else %}
+      <form action="{{ routes.cart_url }}" method="post">
+        {% for item in cart.items %}
+          <div class="cart-row">
+            <div>
+              <strong>{{ item.product.title }}</strong>
+              <p>{{ item.final_price | money }} × {{ item.quantity }}</p>
+            </div>
+            <a href="{{ item.url_to_remove }}">Remove</a>
+          </div>
+        {% endfor %}
+        <p><strong>Subtotal:</strong> {{ cart.total_price | money }}</p>
+        <button class="btn" name="checkout">Checkout</button>
+      </form>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cart",
+  "settings": []
+}
+{% endschema %}

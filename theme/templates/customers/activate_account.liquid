@@ -1,0 +1,8 @@
+<div class="page-width page-content">
+  <h1>Activate account</h1>
+  {% form 'activate_customer_password' %}
+    <input type="password" name="customer[password]" placeholder="Password">
+    <input type="password" name="customer[password_confirmation]" placeholder="Confirm password">
+    <button class="btn" type="submit">Activate</button>
+  {% endform %}
+</div>

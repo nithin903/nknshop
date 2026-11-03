@@ -1,0 +1,6 @@
+<div class="page-width page-content">
+  <h1>Addresses</h1>
+  {% for address in customer.addresses %}
+    <p>{{ address | format_address }}</p>
+  {% endfor %}
+</div>

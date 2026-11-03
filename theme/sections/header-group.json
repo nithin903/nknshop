@@ -1,0 +1,26 @@
+{
+  "name": "Header",
+  "type": "header",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "blocks": {
+        "bar": {
+          "type": "bar",
+          "settings": {
+            "text": "Complimentary shipping  ·  Cash on delivery  ·  Easy exchanges",
+            "style": "dark"
+          }
+        }
+      },
+      "block_order": ["bar"]
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "menu": "main-menu"
+      }
+    }
+  },
+  "order": ["announcement", "header"]
+}

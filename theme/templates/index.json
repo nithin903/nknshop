@@ -1,0 +1,157 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "eyebrow": "NKNSHOP",
+        "heading": "Premium audio and accessories, priced with intent.",
+        "subheading": "Shop more, pay less. Curated electronics with cash on delivery, complimentary shipping, and easy exchanges.",
+        "button_label": "Shop collection",
+        "secondary_label": "About NKNSHOP"
+      }
+    },
+    "trust": {
+      "type": "trust-bar",
+      "blocks": {
+        "a": { "type": "item", "settings": { "title": "10,000+", "text": "Customers served" } },
+        "b": { "type": "item", "settings": { "title": "COD", "text": "Cash on delivery" } },
+        "c": { "type": "item", "settings": { "title": "Free shipping", "text": "On eligible orders" } },
+        "d": { "type": "item", "settings": { "title": "Easy exchanges", "text": "Hassle-free support" } }
+      },
+      "block_order": ["a", "b", "c", "d"]
+    },
+    "categories": {
+      "type": "category-grid",
+      "settings": {
+        "kicker": "Browse",
+        "heading": "Shop by category"
+      },
+      "blocks": {
+        "c0": { "type": "category", "settings": { "title": "Juicers", "text": "Portable blending cups" } },
+        "c5": { "type": "category", "settings": { "title": "Accessories", "text": "Fans, pouches, and more" } },
+        "c1": { "type": "category", "settings": { "title": "Earbuds", "text": "ANC and everyday audio" } },
+        "c2": { "type": "category", "settings": { "title": "Headphones", "text": "Over-ear collections" } },
+        "c3": { "type": "category", "settings": { "title": "Charging", "text": "Cables, adapters, power banks" } },
+        "c4": { "type": "category", "settings": { "title": "Wearables", "text": "Watches and covers" } }
+      },
+      "block_order": ["c0", "c5", "c1", "c2", "c3", "c4"]
+    },
+    "juicers": {
+      "type": "featured-products",
+      "settings": {
+        "kicker": "Kitchen",
+        "heading": "Juicers",
+        "link_label": "View all"
+      },
+      "blocks": {
+        "j1": {
+          "type": "product",
+          "settings": {
+            "asset_image": "juicer-1.png",
+            "title": "JUICE CUP NG-01 Portable Blender",
+            "price": "380.00"
+          }
+        }
+      },
+      "block_order": ["j1"]
+    },
+    "accessories": {
+      "type": "featured-products",
+      "settings": {
+        "kicker": "Everyday",
+        "heading": "Accessories",
+        "link_label": "View all"
+      },
+      "blocks": {
+        "a1": {
+          "type": "product",
+          "settings": {
+            "asset_image": "fan-pack.png",
+            "title": "USB-C Mini Fan Pack of 2",
+            "price": "130.00"
+          }
+        },
+        "a2": {
+          "type": "product",
+          "settings": {
+            "asset_image": "phone-pouch.png",
+            "title": "Waterproof Phone Pouch",
+            "price": "60.00"
+          }
+        }
+      },
+      "block_order": ["a1", "a2"]
+    },
+    "earbuds": {
+      "type": "featured-products",
+      "settings": {
+        "kicker": "Audio",
+        "heading": "Wireless earbuds",
+        "link_label": "View all"
+      },
+      "blocks": {
+        "e1": {
+          "type": "product",
+          "settings": {
+            "asset_image": "buds-1.png",
+            "title": "realme Buds Air 7 Pro — Racing Green",
+            "price": "619.00"
+          }
+        },
+        "e2": {
+          "type": "product",
+          "settings": {
+            "asset_image": "oneplus-4.png",
+            "title": "OnePlus Buds Pro 3 — Sapphire Blue",
+            "price": "619.00"
+          }
+        },
+        "e3": {
+          "type": "product",
+          "settings": {
+            "asset_image": "airpods-2.png",
+            "title": "AirPods Pro (2nd generation) MagSafe USB-C",
+            "price": "619.00"
+          }
+        },
+        "e4": {
+          "type": "product",
+          "settings": {
+            "asset_image": "samsung-typec-1.png",
+            "title": "Samsung Type-C Earphones",
+            "price": "320.00"
+          }
+        }
+      },
+      "block_order": ["e1", "e2", "e3", "e4"]
+    },
+    "cables": {
+      "type": "featured-products",
+      "settings": {
+        "kicker": "Power",
+        "heading": "Charging essentials",
+        "link_label": "View all"
+      },
+      "blocks": {
+        "ch1": {
+          "type": "product",
+          "settings": {
+            "asset_image": "usbc-cable.png",
+            "title": "Apple Type-C to Type-C Braided Cable 60W",
+            "price": "619.00"
+          }
+        }
+      },
+      "block_order": ["ch1"]
+    },
+    "promo": {
+      "type": "promo-banner",
+      "settings": {
+        "eyebrow": "Featured",
+        "heading": "Air Pro 4 ANC",
+        "button_label": "Shop now"
+      }
+    }
+  },
+  "order": ["hero", "trust", "categories", "juicers", "accessories", "earbuds", "cables", "promo"]
+}

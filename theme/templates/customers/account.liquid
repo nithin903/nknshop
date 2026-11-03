@@ -1,0 +1,11 @@
+<div class="page-width page-content">
+  <h1>Account</h1>
+  <p>{{ customer.name }} · {{ customer.email }}</p>
+  <h2>Orders</h2>
+  {% for order in customer.orders %}
+    <p><a href="{{ order.customer_url }}">{{ order.name }}</a> — {{ order.total_price | money }}</p>
+  {% else %}
+    <p>You have no orders yet.</p>
+  {% endfor %}
+  <a href="{{ routes.account_logout_url }}">Log out</a>
+</div>
